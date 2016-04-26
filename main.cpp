@@ -2,6 +2,7 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 int material=3;
+//hello i'm hector
 void init(void)
 {
 	GLfloat punto_luz[]={-1.0,-2.0,1.0};
