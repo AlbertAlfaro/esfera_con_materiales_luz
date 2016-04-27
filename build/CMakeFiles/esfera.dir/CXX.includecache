@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/albert/Documentos/AG/esfera_con_materiales/main.cpp
+/home/pedro/Mynube/main.cpp
 GL/gl.h
 -
 GL/glut.h
