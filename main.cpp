@@ -35,6 +35,12 @@ void reshape(int w, int h)
 =======
 
 int material=1;
+int winw, winh;               // Ancho y alto de nuestra ventana, en pixeles, la guardamos para utilizarla en reshape
+
+//Variables para guardar las posiciones del mouse
+bool mouseleftdown = false;   // Es verdadero si precionamos el boton izquierdo de nuestro mouse
+bool mouseleftdownmotion = false; // Es verdadero si precionamos el clic izquierdo y movemos el puntero de nuestro mouse
+int mousex, mousey;   //En esta variables guardamos las posiciones que toma el puntero en "X" y "Y"
 
 >>>>>>> 4b3de8a82c9f35a11ae8d6223fd963e71fe8251a
 void tipo_material(void){
@@ -109,29 +115,61 @@ void tipo_material(void){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glMatrixMode( GL_MODELVIEW_MATRIX );
 		glLoadIdentity();
-		// Rotacion de 25 grados en torno al eje x
-		glRotated(25.0, 1.0, 0.0, 0.0);
-		// Rotacion de -30 grados en torno al eje y
-		glRotated(-30.0, 0.0, 1.0, 0.0);
+		gluLookAt(1.0, 0.1, 3.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	    glScaled(1.0, 1.0, 1.0);
 		glPushMatrix();
-		//glTranslatef(200,0,0);
+		glTranslatef(0.0f,0.0f,0.0f);
 }
 
 void init(void)
 {
-	GLfloat punto_luz[]={-1.0,-2.0,1.0};
-	GLfloat luz_ambiental[]={0.5,0.5,0.5};
+	winw=200; 
+	winh=200;
+	 //Convirtiendo las posiciones tomadas con el mouse a cordenadas del sistema OpenGL
+    GLfloat posicionx = mousex/winw;
+    GLfloat posiciony = 1-mousey/winh;
+	GLfloat punto_luz[]={posicionx,posiciony,1.0};
+	GLfloat luz_ambiental[]={1.0,1.0,1.0};
 	// Activamos la fuente de luz
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0); //Activamos las luces en 0
 	glDepthFunc(GL_LESS); //comparación de profundidad
 	glEnable(GL_DEPTH_TEST); //activa GL_DEPTH_TEST
-	//glLightfv(GL_LIGHT0,GL_POSITION,punto_luz);
+	glLightfv(GL_LIGHT0,GL_POSITION,punto_luz);
 	//glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER,GL_FALSE);
-	//glLightModelfv(GL_LIGHT_MODEL_AMBIENT,luz_ambiental);
+	glLightModelfv(GL_LIGHT_MODEL_AMBIENT,luz_ambiental);
 	glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 	glShadeModel(GL_SMOOTH);
 }
+//La funcion GLUT mouse que llamaremos en glutMouseFunc dentro de su estructura capturamos las posiciones del mouse haciendo uso de otras funciones
+void mouse(int button, int state, int x, int y)
+{
+   //Guarda el estado del boton izquierdo del mouse
+   if (button == GLUT_LEFT_BUTTON)
+   {
+      mouseleftdown = (state == GLUT_DOWN);
+      glutPostRedisplay();  // Cuando hay un cambio en el boton izquierdo vuelve a dibujar
+   }
+
+   //Guarda las posiciones del mouse
+   mousex = x;
+   mousey = y;
+   init();
+}
+/*
+void motion(int x, int y)
+{
+   // Cambia su estado si mantenemos precionado el boton izquierdo y movemos el puntero de posicion
+   if (mouseleftdownmotion){
+	  glutPostRedisplay();
+	  
+   mousex = x;  //Nuestras variables seran iguales el valor que van obteniendo los parametros de la funcion
+   mousey = y;
+   init(); 		//Llamamos a la funcion display para que reciba los valores de las posiciones del puntero del mouse en el 
+                //instante que movemos la luz o cambiamos la posicion del puntero mientras mantenemos precionado el boton izquierdo
+		  }
+}
+*/
 void reshape(int w, int h)
 {
 	glViewport(0, 0, (GLsizei) w, (GLsizei) h);
@@ -150,7 +188,7 @@ void reshape(int w, int h)
 void display(void)
 {
 	tipo_material();
-	glutSolidSphere(150,20,20);
+	glutSolidSphere(150,50,50);
 	glFlush();
 }
 // Función para controlar teclas normales del teclado.
@@ -189,7 +227,7 @@ int main(int argc, char **argv)
 	glutInitWindowSize (600, 600);
 	// Posicionamos la ventana en la esquina superior izquierda de
 	// la pantalla.
-	glutInitWindowPosition (0, 0);
+	glutInitWindowPosition (250, 150);
 	// Creamos literalmente la ventana y le adjudicamos el nombre que se
 	// observara en su barra de titulo.
 	glutCreateWindow ("Esfera con materiales");
@@ -198,6 +236,8 @@ int main(int argc, char **argv)
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutKeyboardFunc(keyboard);
+	glutMouseFunc(mouse);
+	//glutMotionFunc(motion);
 	glutMainLoop();
 	return 0;
 }

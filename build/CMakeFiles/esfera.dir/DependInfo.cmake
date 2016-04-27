@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/albert/Documentos/AG/esfera_con_materiales/main.cpp" "/home/albert/Documentos/AG/esfera_con_materiales/build/CMakeFiles/esfera.dir/main.cpp.o"
+  "/home/pedro/Mynube/main.cpp" "/home/pedro/Mynube/build/CMakeFiles/esfera.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
