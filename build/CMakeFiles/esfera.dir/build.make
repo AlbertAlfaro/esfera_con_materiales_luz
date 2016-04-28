@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/irvin/Documentos/alber_luz_esfera
+CMAKE_SOURCE_DIR = /home/albert/Documentos/AG/esfera_con_materiales
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/irvin/Documentos/alber_luz_esfera/build
+CMAKE_BINARY_DIR = /home/albert/Documentos/AG/esfera_con_materiales/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/esfera.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/esfera.dir/flags.make
 
 CMakeFiles/esfera.dir/main.cpp.o: CMakeFiles/esfera.dir/flags.make
 CMakeFiles/esfera.dir/main.cpp.o: ../main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/irvin/Documentos/alber_luz_esfera/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/albert/Documentos/AG/esfera_con_materiales/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/esfera.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/esfera.dir/main.cpp.o -c /home/irvin/Documentos/alber_luz_esfera/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/esfera.dir/main.cpp.o -c /home/albert/Documentos/AG/esfera_con_materiales/main.cpp
 
 CMakeFiles/esfera.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/esfera.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/irvin/Documentos/alber_luz_esfera/main.cpp > CMakeFiles/esfera.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/albert/Documentos/AG/esfera_con_materiales/main.cpp > CMakeFiles/esfera.dir/main.cpp.i
 
 CMakeFiles/esfera.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/esfera.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/irvin/Documentos/alber_luz_esfera/main.cpp -o CMakeFiles/esfera.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/albert/Documentos/AG/esfera_con_materiales/main.cpp -o CMakeFiles/esfera.dir/main.cpp.s
 
 CMakeFiles/esfera.dir/main.cpp.o.requires:
 .PHONY : CMakeFiles/esfera.dir/main.cpp.o.requires
@@ -81,15 +81,15 @@ esfera_EXTERNAL_OBJECTS =
 
 esfera: CMakeFiles/esfera.dir/main.cpp.o
 esfera: CMakeFiles/esfera.dir/build.make
-esfera: /usr/lib/i386-linux-gnu/libGLU.so
-esfera: /usr/lib/i386-linux-gnu/libGL.so
-esfera: /usr/lib/i386-linux-gnu/libSM.so
-esfera: /usr/lib/i386-linux-gnu/libICE.so
-esfera: /usr/lib/i386-linux-gnu/libX11.so
-esfera: /usr/lib/i386-linux-gnu/libXext.so
-esfera: /usr/lib/i386-linux-gnu/libglut.so
-esfera: /usr/lib/i386-linux-gnu/libXmu.so
-esfera: /usr/lib/i386-linux-gnu/libXi.so
+esfera: /usr/lib/x86_64-linux-gnu/libGLU.so
+esfera: /usr/lib/x86_64-linux-gnu/libGL.so
+esfera: /usr/lib/x86_64-linux-gnu/libSM.so
+esfera: /usr/lib/x86_64-linux-gnu/libICE.so
+esfera: /usr/lib/x86_64-linux-gnu/libX11.so
+esfera: /usr/lib/x86_64-linux-gnu/libXext.so
+esfera: /usr/lib/x86_64-linux-gnu/libglut.so
+esfera: /usr/lib/x86_64-linux-gnu/libXmu.so
+esfera: /usr/lib/x86_64-linux-gnu/libXi.so
 esfera: CMakeFiles/esfera.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable esfera"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/esfera.dir/link.txt --verbose=$(VERBOSE)
@@ -106,6 +106,6 @@ CMakeFiles/esfera.dir/clean:
 .PHONY : CMakeFiles/esfera.dir/clean
 
 CMakeFiles/esfera.dir/depend:
-	cd /home/irvin/Documentos/alber_luz_esfera/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/irvin/Documentos/alber_luz_esfera /home/irvin/Documentos/alber_luz_esfera /home/irvin/Documentos/alber_luz_esfera/build /home/irvin/Documentos/alber_luz_esfera/build /home/irvin/Documentos/alber_luz_esfera/build/CMakeFiles/esfera.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/albert/Documentos/AG/esfera_con_materiales/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/albert/Documentos/AG/esfera_con_materiales /home/albert/Documentos/AG/esfera_con_materiales /home/albert/Documentos/AG/esfera_con_materiales/build /home/albert/Documentos/AG/esfera_con_materiales/build /home/albert/Documentos/AG/esfera_con_materiales/build/CMakeFiles/esfera.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/esfera.dir/depend
 

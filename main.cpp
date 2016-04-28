@@ -3,11 +3,17 @@
 #include <stdlib.h>
 int material=3;
 int winw, winh;               // Ancho y alto de nuestra ventana, en pixeles, la guardamos para utilizarla en reshape
-
+int mouse_state,mouse_button;
+//Variables de posicion
+GLfloat pos_x = 0.0;
+GLfloat pos_y = 0.0;
+GLfloat pos_z = 0.0;
 //Variables para guardar las posiciones del mouse
 bool mouseleftdown = false;   // Es verdadero si precionamos el boton izquierdo de nuestro mouse
 bool mouseleftdownmotion = false; // Es verdadero si precionamos el clic izquierdo y movemos el puntero de nuestro mouse
 int mousex, mousey;   //En esta variables guardamos las posiciones que toma el puntero en "X" y "Y"
+
+
 void tipo_material(void){
 	
 	if (material==3) {
@@ -93,7 +99,7 @@ void init(void)
 	 //Convirtiendo las posiciones tomadas con el mouse a cordenadas del sistema OpenGL
     GLfloat posicionx = mousex/winw;
     GLfloat posiciony = 1-mousey/winh;
-	GLfloat punto_luz[]={posicionx,posiciony,1.0};
+	GLfloat punto_luz[]={pos_x,pos_y,pos_z};
 	GLfloat luz_ambiental[]={1.0,1.0,1.0};
 	// Activamos la fuente de luz
 	glEnable(GL_LIGHTING);
@@ -106,6 +112,36 @@ void init(void)
 	glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 	glShadeModel(GL_SMOOTH);
 }
+
+//funcion que ejerce el motion cuando se presiona el click izquierdo y arrastres
+void motion(int x, int y)
+{
+	GLdouble model[4*4];
+	GLdouble proj[4*4];
+	GLint view[4];
+	GLdouble pan_x, pan_y, pan_z;
+	if (mouse_state == GLUT_DOWN && mouse_button == GLUT_LEFT_BUTTON) 
+	{
+		glGetDoublev(GL_MODELVIEW_MATRIX, model);//devuelve el valor o valores de un parametro seleccionado 
+		glGetDoublev(GL_PROJECTION_MATRIX, proj);
+		glGetIntegerv(GL_VIEWPORT, view);
+
+		
+		gluProject((GLdouble)x, (GLdouble)y, 0.0,model, proj, view,&pan_x, &pan_y, &pan_z);
+		
+		gluUnProject((GLdouble)x, (GLdouble)y, pan_z,model, proj, view,&pan_x, &pan_y, &pan_z);
+		pan_y = -pan_y;
+
+        init();
+		pos_x = pan_x;
+		pos_y = pan_y;
+		pos_z = pan_z;
+
+		glutPostRedisplay();
+	}
+}
+
+
 //La funcion GLUT mouse que llamaremos en glutMouseFunc dentro de su estructura capturamos las posiciones del mouse haciendo uso de otras funciones
 void mouse(int button, int state, int x, int y)
 {
@@ -113,28 +149,17 @@ void mouse(int button, int state, int x, int y)
    if (button == GLUT_LEFT_BUTTON)
    {
       mouseleftdown = (state == GLUT_DOWN);
+      
       glutPostRedisplay();  // Cuando hay un cambio en el boton izquierdo vuelve a dibujar
    }
-
+   
    //Guarda las posiciones del mouse
    mousex = x;
    mousey = y;
    init();
+   
 }
-/*
-void motion(int x, int y)
-{
-   // Cambia su estado si mantenemos precionado el boton izquierdo y movemos el puntero de posicion
-   if (mouseleftdownmotion){
-	  glutPostRedisplay();
-	  
-   mousex = x;  //Nuestras variables seran iguales el valor que van obteniendo los parametros de la funcion
-   mousey = y;
-   init(); 		//Llamamos a la funcion display para que reciba los valores de las posiciones del puntero del mouse en el 
-                //instante que movemos la luz o cambiamos la posicion del puntero mientras mantenemos precionado el boton izquierdo
-		  }
-}
-*/
+
 void reshape(int w, int h)
 {
 	glViewport(0, 0, (GLsizei) w, (GLsizei) h);
@@ -163,18 +188,23 @@ void keyboard(unsigned char key, int x, int y)
     switch (key)
     {
     case 'c':
-        material=1;
+    case 'C':
+        material=2;
         break;
     case 'r':
-		material=2;
+    case 'R':
+		material=1;
 		break;
 	case 'g':
+	case 'G':
 		material=3;
 		break;
 	case 'b':
+	case 'B':
 		material=4;
 		break;
 	case 's':
+	case 'S':
 		material=5;
 		break;
      }
@@ -199,10 +229,11 @@ int main(int argc, char **argv)
 	// Inicializamos el sistema
 	init();
 	glutDisplayFunc(display);
+	//glutIdleFunc(display);
 	glutReshapeFunc(reshape);
 	glutKeyboardFunc(keyboard);
 	glutMouseFunc(mouse);
-	//glutMotionFunc(motion);
+	glutMotionFunc(motion);
 	glutMainLoop();
 	return 0;
 }

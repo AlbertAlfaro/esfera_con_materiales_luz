@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/irvin/Documentos/alber_luz_esfera
+CMAKE_SOURCE_DIR = /home/albert/Documentos/AG/esfera_con_materiales
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/irvin/Documentos/alber_luz_esfera/build
+CMAKE_BINARY_DIR = /home/albert/Documentos/AG/esfera_con_materiales/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/esfera.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/irvin/Documentos/alber_luz_esfera/build
 CMakeFiles/esfera.dir/all:
 	$(MAKE) -f CMakeFiles/esfera.dir/build.make CMakeFiles/esfera.dir/depend
 	$(MAKE) -f CMakeFiles/esfera.dir/build.make CMakeFiles/esfera.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/irvin/Documentos/alber_luz_esfera/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/albert/Documentos/AG/esfera_con_materiales/build/CMakeFiles  1
 	@echo "Built target esfera"
 .PHONY : CMakeFiles/esfera.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/esfera.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/esfera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/irvin/Documentos/alber_luz_esfera/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/albert/Documentos/AG/esfera_con_materiales/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/esfera.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/irvin/Documentos/alber_luz_esfera/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/albert/Documentos/AG/esfera_con_materiales/build/CMakeFiles 0
 .PHONY : CMakeFiles/esfera.dir/rule
 
 # Convenience name for target.
