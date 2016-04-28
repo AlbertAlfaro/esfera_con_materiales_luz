@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pedro/Mynube
+CMAKE_SOURCE_DIR = /home/albert/Documentos/AG/esfera_con_materiales
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pedro/Mynube/build
+CMAKE_BINARY_DIR = /home/albert/Documentos/AG/esfera_con_materiales/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/esfera.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/esfera.dir/flags.make
 
 CMakeFiles/esfera.dir/main.cpp.o: CMakeFiles/esfera.dir/flags.make
 CMakeFiles/esfera.dir/main.cpp.o: ../main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pedro/Mynube/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/albert/Documentos/AG/esfera_con_materiales/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/esfera.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/esfera.dir/main.cpp.o -c /home/pedro/Mynube/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/esfera.dir/main.cpp.o -c /home/albert/Documentos/AG/esfera_con_materiales/main.cpp
 
 CMakeFiles/esfera.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/esfera.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pedro/Mynube/main.cpp > CMakeFiles/esfera.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/albert/Documentos/AG/esfera_con_materiales/main.cpp > CMakeFiles/esfera.dir/main.cpp.i
 
 CMakeFiles/esfera.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/esfera.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pedro/Mynube/main.cpp -o CMakeFiles/esfera.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/albert/Documentos/AG/esfera_con_materiales/main.cpp -o CMakeFiles/esfera.dir/main.cpp.s
 
 CMakeFiles/esfera.dir/main.cpp.o.requires:
 .PHONY : CMakeFiles/esfera.dir/main.cpp.o.requires
@@ -106,6 +106,6 @@ CMakeFiles/esfera.dir/clean:
 .PHONY : CMakeFiles/esfera.dir/clean
 
 CMakeFiles/esfera.dir/depend:
-	cd /home/pedro/Mynube/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pedro/Mynube /home/pedro/Mynube /home/pedro/Mynube/build /home/pedro/Mynube/build /home/pedro/Mynube/build/CMakeFiles/esfera.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/albert/Documentos/AG/esfera_con_materiales/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/albert/Documentos/AG/esfera_con_materiales /home/albert/Documentos/AG/esfera_con_materiales /home/albert/Documentos/AG/esfera_con_materiales/build /home/albert/Documentos/AG/esfera_con_materiales/build /home/albert/Documentos/AG/esfera_con_materiales/build/CMakeFiles/esfera.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/esfera.dir/depend
 

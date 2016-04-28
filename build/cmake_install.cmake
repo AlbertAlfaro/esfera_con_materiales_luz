@@ -1,4 +1,4 @@
-# Install script for directory: /home/pedro/Mynube
+# Install script for directory: /home/albert/Documentos/AG/esfera_con_materiales
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-file(WRITE "/home/pedro/Mynube/build/${CMAKE_INSTALL_MANIFEST}" "")
+file(WRITE "/home/albert/Documentos/AG/esfera_con_materiales/build/${CMAKE_INSTALL_MANIFEST}" "")
 foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  file(APPEND "/home/pedro/Mynube/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  file(APPEND "/home/albert/Documentos/AG/esfera_con_materiales/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 endforeach()
