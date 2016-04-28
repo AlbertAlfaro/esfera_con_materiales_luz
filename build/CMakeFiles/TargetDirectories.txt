@@ -1,1 +1,1 @@
-/home/albert/Documentos/AG/esfera_con_materiales/build/CMakeFiles/esfera.dir
+/home/irvin/Documentos/alber_luz_esfera/build/CMakeFiles/esfera.dir
